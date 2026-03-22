@@ -55,19 +55,19 @@ context grows linearly with conversation length. message 50 carries all 49 previ
 
 ## multi-machine delegation
 
-if you have two machines (e.g. fubz + forge), route tasks by complexity:
+if you have two machines (e.g. agent-1 + agent-2), route tasks by complexity:
 
 | task type | where to run | why |
 |---|---|---|
-| quick answers, conversation | primary (fubz) | low tokens, fast |
+| quick answers, conversation | primary (agent-1) | low tokens, fast |
 | code generation | secondary (forge) | high tokens, delegated |
 | web research | secondary (forge) | fetching burns context |
 | file analysis | secondary (forge) | large content in context |
-| local file edits | primary (fubz) | needs filesystem access |
+| local file edits | primary (agent-1) | needs filesystem access |
 
 delegation via ssh:
 ```bash
-ssh forge@<tailscale-ip> "openclaw gateway call chat.send \
+ssh agent-2@<tailscale-ip> "openclaw gateway call chat.send \
   --token '<gateway-token>' \
   --params '{\"sessionKey\": \"agent:main:main\", \"message\": \"<task>\", \"idempotencyKey\": \"<unique-id>\"}'"
 ```

@@ -10,7 +10,7 @@ Run multiple OpenClaw agents across machines that can talk to each other.
 │   "clawd"           │    100.x.x.x       │   "nova" (or w/e)   │
 │                     │                     │                     │
 │   • imessage        │                     │   • research tasks  │
-│   • cackles plugin  │   sessions_send()   │   • build server    │
+│   • app plugin  │   sessions_send()   │   • build server    │
 │   • main agent      │◄──────────────────►│   • heavy compute   │
 │   • your phone DMs  │   webhook hooks     │   • background jobs │
 └─────────────────────┘                     └─────────────────────┘
@@ -43,7 +43,7 @@ Run multiple OpenClaw agents across machines that can talk to each other.
   --identity nova \
   --tailscale-key tskey-auth-xxxxx \
   --peer http://100.x.x.x:18789 \
-  --alert +15166334684
+  --alert +1XXXXXXXXXX
 ```
 
 ### Accounts & Identity
@@ -73,7 +73,7 @@ ssh nova@100.x.x.x "openclaw gateway call chat.send \
   --token '<nova-gateway-token>' \
   --params '{
     \"sessionKey\": \"agent:main:main\",
-    \"message\": \"run the test suite on cackles repo\",
+    \"message\": \"run the test suite on your-app repo\",
     \"idempotencyKey\": \"task-$(date +%s)\"
   }'"
 ```

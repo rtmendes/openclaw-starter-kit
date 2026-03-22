@@ -6,7 +6,7 @@
 #
 # Configuration via environment variables:
 #   ALERT_PHONE     - phone number for iMessage alerts (e.g. +15551234567)
-#   REMOTE_HOST     - optional SSH host for a second machine (e.g. forge@100.x.x.x)
+#   REMOTE_HOST     - optional SSH host for a second machine (e.g. agent2@100.x.x.x)
 #   REMOTE_NAME     - display name for remote machine (default: "remote")
 #   DISK_WARN_PCT   - disk usage % to trigger alert (default: 90)
 #
